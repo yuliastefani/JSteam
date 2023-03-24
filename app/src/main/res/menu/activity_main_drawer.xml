@@ -6,22 +6,22 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gameSection"
+            android:id="@+id/nav_game"
             android:icon="@drawable/ic_menu_game"
             android:title="@string/menu_game" />
 
         <item
-            android:id="@+id/nav_reviewSection"
+            android:id="@+id/nav_review"
             android:icon="@drawable/ic_menu_review"
             android:title="@string/menu_review" />
 
         <item
-            android:id="@+id/nav_profileSection"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_profile"
             android:title="@string/menu_profile" />
 
         <item
-            android:id="@+id/nav_aboutUs"
+            android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about"
             android:title="@string/menu_about" />
 
