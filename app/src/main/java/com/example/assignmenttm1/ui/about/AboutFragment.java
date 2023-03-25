@@ -1,37 +1,40 @@
 package com.example.assignmenttm1.ui.about;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import com.example.assignmenttm1.R;
 
-import com.example.assignmenttm1.databinding.FragmentAboutBinding;
-
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link AboutFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
 public class AboutFragment extends Fragment {
 
-    private FragmentAboutBinding binding;
+    public AboutFragment() {
+        // Required empty public constructor
+    }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        AboutViewModel aboutViewModel =
-                new ViewModelProvider(this).get(AboutViewModel.class);
-
-        binding = FragmentAboutBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textAbout;
-        aboutViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+    public static AboutFragment newInstance() {
+        AboutFragment fragment = new AboutFragment();
+        return fragment;
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
 }

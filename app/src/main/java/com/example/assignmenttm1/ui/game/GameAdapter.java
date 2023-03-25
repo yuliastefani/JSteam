@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,7 +38,9 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull GameAdapter.ViewHolder holder, int position) {
-        holder.gameImageIDTxt.setText(vGame.get(position).getGameImageID());
+        String gameImageIDName = vGame.get(position).getGameImageID();
+        int gameImageID = ctx.getResources().getIdentifier(gameImageIDName, "drawable", ctx.getPackageName());
+        holder.gameImageIDTxt.setImageResource(gameImageID);
         holder.gameNameTxt.setText(vGame.get(position).getGameName());
         holder.gameGenreTxt.setText(vGame.get(position).getGameGenre());
         holder.gamePriceTxt.setText(String.valueOf(vGame.get(position).getGamePrice()));
@@ -45,12 +48,12 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return vGame.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView gameImageIDTxt, gameNameTxt, gameGenreTxt, gamePriceTxt;
+        ImageView gameImageIDTxt;
+        TextView gameNameTxt, gameGenreTxt, gamePriceTxt;
         CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

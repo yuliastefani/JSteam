@@ -5,7 +5,7 @@ public class Game {
     private String gameImageID;
     private String gameName;
     private String gameGenre;
-    private Integer gamePrice;
+    private int gamePrice;
 
     public Game(String gameImageID, String gameName, String gameGenre, Integer gamePrice) {
         this.gameImageID = gameImageID;

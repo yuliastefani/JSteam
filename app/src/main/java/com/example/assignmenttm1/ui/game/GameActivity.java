@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.assignmenttm1.R;
 
 import java.util.Vector;
@@ -33,9 +32,9 @@ public class GameActivity extends AppCompatActivity {
         gameAdapter = new GameAdapter(this);
         gameAdapter.setvGame(games);
 
-        gameAdapter.setAdapter(gameAdapter);
+        gameRecycler.setAdapter(gameAdapter);
 
-        gameAdapter.setLayoutManager(new GridLayoutManager(this, 2));
+        gameRecycler.setLayoutManager(new GridLayoutManager(this, 2));
 
     }
 
