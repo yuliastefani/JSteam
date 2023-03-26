@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/gameCV"
     app:cardElevation="12dp"
-    app:cardCornerRadius="5dp"
+    app:cardCornerRadius="10dp"
     android:layout_margin="12dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="175dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,22 +18,29 @@
             android:id="@+id/gameImageIDTxt"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/gameNameTxt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
 
         <TextView
             android:id="@+id/gameGenreTxt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
 
         <TextView
             android:id="@+id/gamePriceTxt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
 
     </LinearLayout>
 

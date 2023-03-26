@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,11 +25,12 @@ import java.util.Vector;
 
 public class GameFragment extends Fragment {
 
-    private GamesHelper helper;
+    GamesHelper helper;
     RecyclerView gameRecycler;
     Vector<Game> games;
     GameAdapter gameAdapter;
-    DatabaseHelper DB;
+    ImageView gameImageIDTxt;
+    TextView gameNameTxt, gameGenreTxt, gamePriceTxt;
 
     public GameFragment() {
         // Required empty public constructor
@@ -47,14 +50,16 @@ public class GameFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        helper = new GamesHelper(getContext());
+        helper.open();
+        games = helper.viewGames();
+        helper.close();
+
         gameRecycler = view.findViewById(R.id.gameRv);
-        gameRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-
         gameAdapter = new GameAdapter(getContext());
+        gameAdapter.setvGame(games);
         gameRecycler.setAdapter(gameAdapter);
-
-        DB = new DatabaseHelper(getContext());
-
+        gameRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
 

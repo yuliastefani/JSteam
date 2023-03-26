@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.review.ReviewFragment">
+    tools:context=".ui.review.ReviewFragment"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/text_game"
@@ -24,6 +25,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gameRv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/game_item"/>
 
 </LinearLayout>

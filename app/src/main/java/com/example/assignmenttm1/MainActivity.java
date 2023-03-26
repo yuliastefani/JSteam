@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == login){
             if(checkField() == true){
                 Intent toHome = new Intent(this, NavigationActivity.class);
+                toHome.putExtra("username", username.getText().toString());
                 startActivity(toHome);
             }
         }

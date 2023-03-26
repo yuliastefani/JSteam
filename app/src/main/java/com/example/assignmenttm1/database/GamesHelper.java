@@ -38,7 +38,9 @@ public class GamesHelper {
 
         Cursor cursor = db.rawQuery(query, null);
 
-        Game game;
+        cursor.moveToFirst();
+
+        Game games;
         String tempImgID, tempName, tempGenre, tempPrice;
 
         if (cursor.getCount() > 0){
@@ -48,9 +50,9 @@ public class GamesHelper {
                 tempGenre = cursor.getString(cursor.getColumnIndexOrThrow("gameGenre"));
                 tempPrice = String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow("gamePrice")));
 
-                game = new Game(tempImgID, tempName, tempGenre, Integer.valueOf(tempPrice));
+                games = new Game(tempImgID, tempName, tempGenre, Integer.valueOf(tempPrice));
 
-                gameVector.add(game);
+                gameVector.add(games); //add to vector
 
                 cursor.moveToNext();
 

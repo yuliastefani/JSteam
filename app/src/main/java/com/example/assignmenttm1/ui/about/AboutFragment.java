@@ -10,11 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.assignmenttm1.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AboutFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AboutFragment extends Fragment {
 
     public AboutFragment() {
