@@ -29,9 +29,6 @@ public class GameFragment extends Fragment {
     RecyclerView gameRecycler;
     Vector<Game> games;
     GameAdapter gameAdapter;
-    ImageView gameImageIDTxt;
-    TextView gameNameTxt, gameGenreTxt, gamePriceTxt;
-
     public GameFragment() {
         // Required empty public constructor
     }

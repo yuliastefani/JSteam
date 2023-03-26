@@ -41,16 +41,18 @@ public class GamesHelper {
         cursor.moveToFirst();
 
         Game games;
-        String tempImgID, tempName, tempGenre, tempPrice;
+        String tempImgID, tempName, tempGenre, tempRating, tempPrice, tempDesc;
 
         if (cursor.getCount() > 0){
             do {
                 tempImgID = cursor.getString(cursor.getColumnIndexOrThrow("gameImageID"));
                 tempName = cursor.getString(cursor.getColumnIndexOrThrow("gameName"));
                 tempGenre = cursor.getString(cursor.getColumnIndexOrThrow("gameGenre"));
+                tempRating = cursor.getString(cursor.getColumnIndexOrThrow("gameRating"));
                 tempPrice = String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow("gamePrice")));
+                tempDesc = cursor.getString(cursor.getColumnIndexOrThrow("gameDesc"));
 
-                games = new Game(tempImgID, tempName, tempGenre, Integer.valueOf(tempPrice));
+                games = new Game(tempImgID, tempName, tempGenre, tempRating, Integer.valueOf(tempPrice), tempDesc);
 
                 gameVector.add(games); //add to vector
 

@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(checkField() == true){
+                if(checkField() == true){
 //                    String user = username.getText().toString();
 //                    String pass = password.getText().toString();
 //                    String em = email.getText().toString();
@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 //                    else {
 //                        Toast.makeText(RegisterActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
 //                    }
-//                }
+                }
 
             }
         });
@@ -85,12 +85,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(RegisterActivity.this, "All fields must be filled!", Toast.LENGTH_SHORT).show();
         }
 
-        if (!username.getText().toString().matches("[a-zA-Z0-9]+")){
+        if (!username.getText().toString().matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")){
             Toast.makeText(this, "Username must be unique and alphanumeric!", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (password.getText().length() < 5 || !password.getText().toString().matches("[a-zA-Z0-9]+")){
+        if (password.getText().length() < 5 || !password.getText().toString().matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")){
             Toast.makeText(this, "Password must be at least five characters and alphanumeric!", Toast.LENGTH_SHORT).show();
             return false;
         }

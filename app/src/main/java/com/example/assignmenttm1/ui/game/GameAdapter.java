@@ -1,6 +1,7 @@
 package com.example.assignmenttm1.ui.game;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,14 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder>{
         holder.gameNameTxt.setText(vGame.get(position).getGameName());
         holder.gameGenreTxt.setText(vGame.get(position).getGameGenre());
         holder.gamePriceTxt.setText(String.valueOf(vGame.get(position).getGamePrice()));
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent detailGameIntent = new Intent(ctx, DetailGameActivity.class);
+                detailGameIntent.putExtra(DetailGameActivity.detGame, vGame.get(position));
+                ctx.startActivity(detailGameIntent);
+            }
+        });
     }
 
     @Override
