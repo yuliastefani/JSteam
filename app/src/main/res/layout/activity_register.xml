@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/tv_home_welcome"
@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/et_regis_un"
@@ -78,12 +79,12 @@
         android:id="@+id/btn_regis"
         android:layout_width="234dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginTop="28dp"
         android:text="REGISTER"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login" />
 
     <TextView
         android:id="@+id/tv_regis_accInfo"
@@ -99,12 +100,14 @@
         android:id="@+id/tv_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="20dp"
         android:text="Already has an account?"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_regis"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_regis_region" />
 
     <EditText
         android:id="@+id/et_regis_region"

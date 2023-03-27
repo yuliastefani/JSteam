@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(checkField() == true){
                 Intent toHome = new Intent(this, NavigationActivity.class);
                 toHome.putExtra("username", username.getText().toString());
+                toHome.putExtra("email", username.getText().toString()+"@gmail.com");
+                toHome.putExtra("phoneNumber", "62101515515");
+                toHome.putExtra("region", "Indonesia");
                 startActivity(toHome);
             }
         }

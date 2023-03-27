@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query = "Create table JSteamGames (gameImageID, gameName, gameGenre, gameRating, gamePrice, gameDesc)";
 //        String query2 = "Create table JSteamReview (gameImageID, gameName, gameGenre, gamePrice)";
-        String queryUser = "Create table JSteamUser (user, pass, em, phone, reg)";
+        String queryUser = "Create table JSteamUser (user , pass, em, phone, reg)";
 
         db.execSQL(query);
         db.execSQL(queryUser);

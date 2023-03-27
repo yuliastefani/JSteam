@@ -1,71 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.game.DetailGameActivity">
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:elevation="10dp">
 
-    <ImageView
-        android:id="@+id/gameImageIDTxt"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="76dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/gameNameTxt"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/gameImageIDTxt"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/gameGenreTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/gameNameTxt"
-        tools:layout_editor_absoluteX="0dp" />
+        <ImageView
+            android:id="@+id/gameImageIDTxt"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp" />
 
-    <TextView
-        android:id="@+id/gameRatingTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/gameGenreTxt"
-        tools:layout_editor_absoluteX="0dp" />
+        <TextView
+            android:id="@+id/gameNameTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:textAlignment="center"
+            android:textSize="35dp"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="0dp" />
 
-    <TextView
-        android:id="@+id/gamePriceTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/gameRatingTxt"
-        tools:layout_editor_absoluteX="0dp" />
+        <TextView
+            android:id="@+id/gameGenreTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="0dp" />
 
-    <TextView
-        android:id="@+id/gameDescTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/gamePriceTxt"
-        tools:layout_editor_absoluteX="0dp" />
+        <TextView
+            android:id="@+id/gameRatingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="0dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/gamePriceTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/gameDescTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:text="Your Review"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
+
+        <EditText
+            android:id="@+id/et_gameComment"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btn_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Review!"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

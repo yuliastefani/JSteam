@@ -85,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(RegisterActivity.this, "All fields must be filled!", Toast.LENGTH_SHORT).show();
         }
 
-        if (!username.getText().toString().matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")){
+        if (!username.getText().toString().matches("[a-zA-Z0-9]+")){
             Toast.makeText(this, "Username must be unique and alphanumeric!", Toast.LENGTH_SHORT).show();
             return false;
         }
