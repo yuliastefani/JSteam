@@ -1,48 +1,47 @@
 package com.example.assignmenttm1.ui.review;
 
 public class Review {
+    private int reviewID;
+    private int gameID;
+    private int userID;
+    private String reviewComment;
 
-    private String gameImageID;
-    private String gameName;
-    private String userName;
-    private String gameComment;
-
-    public Review(String gameImageID, String gameName, String userName, String gameComment) {
-        this.gameImageID = gameImageID;
-        this.gameName = gameName;
-        this.userName = userName;
-        this.gameComment = gameComment;
+    public Review(int reviewID, int gameID, int userID, String reviewComment) {
+        this.reviewID = reviewID;
+        this.gameID = gameID;
+        this.userID = userID;
+        this.reviewComment = reviewComment;
     }
 
-    public String getGameImageID() {
-        return gameImageID;
+    public int getReviewID() {
+        return reviewID;
     }
 
-    public void setGameImageID(String gameImageID) {
-        this.gameImageID = gameImageID;
+    public void setReviewID(int reviewID) {
+        this.reviewID = reviewID;
     }
 
-    public String getGameName() {
-        return gameName;
+    public int getGameID() {
+        return gameID;
     }
 
-    public void setGameName(String gameName) {
-        this.gameName = gameName;
+    public void setGameID(int gameID) {
+        this.gameID = gameID;
     }
 
-    public String getUserName() {
-        return userName;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
-    public String getGameComment() {
-        return gameComment;
+    public String getReviewComment() {
+        return reviewComment;
     }
 
-    public void setGameComment(String gameComment) {
-        this.gameComment = gameComment;
+    public void setReviewComment(String reviewComment) {
+        this.reviewComment = reviewComment;
     }
 }

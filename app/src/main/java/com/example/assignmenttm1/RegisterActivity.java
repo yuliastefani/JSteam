@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assignmenttm1.database.DatabaseHelper;
+import com.example.assignmenttm1.database.UserHelper;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText username, password, email, phoneNumber, region;
     Button register;
     DatabaseHelper db;
+    UserHelper userHelper;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,17 +40,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register = findViewById(R.id.btn_regis);
 
         db = new DatabaseHelper(this);
-
+        userHelper = new UserHelper(this);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkField() == true){
-//                    String user = username.getText().toString();
-//                    String pass = password.getText().toString();
-//                    String em = email.getText().toString();
-//                    String phone = phoneNumber.getText().toString();
-//                    String reg = region.getText().toString();
+                    String user = username.getText().toString();
+                    String pass = password.getText().toString();
+                    String em = email.getText().toString();
+                    String phone = phoneNumber.getText().toString();
+                    String reg = region.getText().toString();
+
+                    userHelper.open();
+                    userHelper.addUser(user, pass, em, reg, phone);
+                    userHelper.close();
 //
 //                    Boolean checkInsertData = db.insertUser(user, pass, em, phone, reg);
 //

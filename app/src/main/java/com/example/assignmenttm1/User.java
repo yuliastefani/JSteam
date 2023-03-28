@@ -2,18 +2,27 @@ package com.example.assignmenttm1;
 
 public class User {
 
+    private int userID;
     private String userName;
     private String userEmail;
     private String userPass;
     private String userRegion;
-    private Integer userPhone;
+    private String userPhone;
 
-    public User(String userName, String userEmail, String userPass, String userRegion, Integer userPhone) {
+    public User(int userID, String userName, String userPass, String userEmail, String userRegion, String userPhone) {
+        this.userID = userID;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPass = userPass;
         this.userRegion = userRegion;
         this.userPhone = userPhone;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getUserName() {
@@ -48,11 +57,11 @@ public class User {
         this.userRegion = userRegion;
     }
 
-    public Integer getUserPhone() {
+    public String getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(Integer userPhone) {
+    public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
 }

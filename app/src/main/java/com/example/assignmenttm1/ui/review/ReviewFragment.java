@@ -19,8 +19,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assignmenttm1.R;
+import com.example.assignmenttm1.User;
+import com.example.assignmenttm1.database.GamesHelper;
+import com.example.assignmenttm1.database.ReviewHelper;
+import com.example.assignmenttm1.database.UserHelper;
 import com.example.assignmenttm1.databinding.FragmentReviewBinding;
 import com.example.assignmenttm1.ui.about.AboutFragment;
+import com.example.assignmenttm1.ui.game.Game;
 import com.example.assignmenttm1.ui.game.GameAdapter;
 
 import java.util.Vector;
@@ -55,9 +60,18 @@ public class ReviewFragment extends Fragment {
         user = intent.getStringExtra("username");
         reviewRecycler = view.findViewById(R.id.reviewRV);
 
+        Vector<Review> vReview = new Vector<>();
+        ReviewHelper reviewHelper = new ReviewHelper(getContext());
+        reviewHelper.open();
+        vReview = reviewHelper.viewReview();
+        reviewHelper.close();
+        int viewId = vReview.get(0).getReviewID();
+        int userId = vReview.get(0).getUserID();
+        int gameId = vReview.get(0).getGameID();
+        String reviewComment = vReview.get(0).getReviewComment();
+
         vReview = new Vector<>();
-        vReview.add(new Review("ic_cookie_run_kingdom","Cookie Run: Kingdom","by: " + user,"Bagus"));
-        vReview.add(new Review("ic_cookie_run_ovenbreak","Cookie Run: Ovenbreak","by: " + user,"Bagus bangett"));
+        vReview.add(new Review(viewId, gameId, userId, reviewComment));
 
         reviewAdapter = new ReviewAdapter(getContext());
         reviewAdapter.setvReview(vReview);

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 public class Game implements Parcelable {
 
+    private int gameID;
     private String gameImageID;
     private String gameName;
     private String gameGenre;
@@ -14,7 +15,8 @@ public class Game implements Parcelable {
     private int gamePrice;
     private String gameDesc;
 
-    public Game(String gameImageID, String gameName, String gameGenre, String gameRating, Integer gamePrice, String gameDesc) {
+    public Game(int gameID, String gameImageID, String gameName, String gameGenre, String gameRating, Integer gamePrice, String gameDesc) {
+        this.gameID = gameID;
         this.gameImageID = gameImageID;
         this.gameName = gameName;
         this.gameGenre = gameGenre;
@@ -43,6 +45,14 @@ public class Game implements Parcelable {
             return new Game[size];
         }
     };
+
+    public int getGameID() {
+        return gameID;
+    }
+
+    public void setGameID(int gameID) {
+        this.gameID = gameID;
+    }
 
     public String getGameRating() {
         return gameRating;

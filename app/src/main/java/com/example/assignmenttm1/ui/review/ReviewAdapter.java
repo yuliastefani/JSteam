@@ -18,6 +18,10 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assignmenttm1.R;
+import com.example.assignmenttm1.User;
+import com.example.assignmenttm1.database.GamesHelper;
+import com.example.assignmenttm1.database.UserHelper;
+import com.example.assignmenttm1.ui.game.Game;
 import com.example.assignmenttm1.ui.game.GameAdapter;
 
 import java.util.Vector;
@@ -48,12 +52,24 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String gameImageIDName = vReview.get(position).getGameImageID();
+        Vector<Game> vGame = new Vector<>();
+        GamesHelper gamesHelper = new GamesHelper(ctx);
+        gamesHelper.open();
+        vGame = gamesHelper.searchGame(vReview.get(position).getGameID());
+        gamesHelper.close();
+
+        Vector<User> vUser = new Vector<>();
+        UserHelper userHelper = new UserHelper(ctx);
+        userHelper.open();
+        vUser = userHelper.viewUser(vReview.get(position).getUserID());
+        userHelper.close();
+
+        String gameImageIDName = vGame.get(position).getGameImageID();
         int gameImageID = ctx.getResources().getIdentifier(gameImageIDName, "drawable", ctx.getPackageName());
         holder.gameImageIDTxt.setImageResource(gameImageID);
-        holder.gameNameTxt.setText(vReview.get(position).getGameName());
-        holder.userNameTxt.setText(vReview.get(position).getUserName());
-        holder.gameCommentTxt.setText(vReview.get(position).getGameComment());
+        holder.gameNameTxt.setText(vGame.get(position).getGameName());
+        holder.userNameTxt.setText(vUser.get(position).getUserName());
+        holder.gameCommentTxt.setText(vReview.get(position).getReviewComment());
         holder.btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +87,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
                         }else {
                             String gameComment = edt_gameComment.getText().toString();
-                            vReview.get(position).setGameComment(gameComment);
+                            vReview.get(position).setReviewComment(gameComment);
                         }
 
                         notifyDataSetChanged();

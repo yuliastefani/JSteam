@@ -41,18 +41,57 @@ public class GamesHelper {
         cursor.moveToFirst();
 
         Game games;
-        String tempImgID, tempName, tempGenre, tempRating, tempPrice, tempDesc;
+        String tempImgID, tempName, tempGenre, tempRating, tempDesc;
+        int tempID, tempPrice;
 
         if (cursor.getCount() > 0){
             do {
+                tempID = cursor.getInt(cursor.getColumnIndexOrThrow("gameID"));
                 tempImgID = cursor.getString(cursor.getColumnIndexOrThrow("gameImageID"));
                 tempName = cursor.getString(cursor.getColumnIndexOrThrow("gameName"));
                 tempGenre = cursor.getString(cursor.getColumnIndexOrThrow("gameGenre"));
                 tempRating = cursor.getString(cursor.getColumnIndexOrThrow("gameRating"));
-                tempPrice = String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow("gamePrice")));
+                tempPrice = cursor.getInt(cursor.getColumnIndexOrThrow("gamePrice"));
                 tempDesc = cursor.getString(cursor.getColumnIndexOrThrow("gameDesc"));
 
-                games = new Game(tempImgID, tempName, tempGenre, tempRating, Integer.valueOf(tempPrice), tempDesc);
+                games = new Game(tempID, tempName, tempGenre, tempImgID, tempRating, tempPrice, tempDesc);
+
+                gameVector.add(games); //add to vector
+
+                cursor.moveToNext();
+
+            }while(!cursor.isAfterLast());
+        }
+
+        cursor.close();
+
+        return gameVector;
+    }
+
+    public Vector<Game> searchGame(int gameId){
+        Vector<Game> gameVector = new Vector<>();
+
+        String query = "Select * from JSteamGames where gameID = " + gameId;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        cursor.moveToFirst();
+
+        Game games;
+        String tempImgID, tempName, tempGenre, tempRating, tempDesc;
+        int tempID, tempPrice;
+
+        if (cursor.getCount() > 0){
+            do {
+                tempID = cursor.getInt(cursor.getColumnIndexOrThrow("gameID"));
+                tempImgID = cursor.getString(cursor.getColumnIndexOrThrow("gameImageID"));
+                tempName = cursor.getString(cursor.getColumnIndexOrThrow("gameName"));
+                tempGenre = cursor.getString(cursor.getColumnIndexOrThrow("gameGenre"));
+                tempRating = cursor.getString(cursor.getColumnIndexOrThrow("gameRating"));
+                tempPrice = cursor.getInt(cursor.getColumnIndexOrThrow("gamePrice"));
+                tempDesc = cursor.getString(cursor.getColumnIndexOrThrow("gameDesc"));
+
+                games = new Game(tempID, tempName, tempGenre, tempImgID, tempRating, tempPrice, tempDesc);
 
                 gameVector.add(games); //add to vector
 
